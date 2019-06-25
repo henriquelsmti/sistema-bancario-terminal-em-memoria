@@ -8,37 +8,37 @@ import java.util.List;
 
 public class ClienteRN {
 
-    private Clientes clientes = new ClientesEmMemoria();
+	private Clientes clientes = new ClientesEmMemoria();
 
-    List<Cliente> listAll() throws Exception {
-        return clientes.listAll();
-    }
+	public List<Cliente> listAll() throws Exception {
+		return clientes.listAll();
+	}
 
-    void save(Cliente cliente) throws Exception {
-        if(cliente.getNome() == null || cliente.getNome().isBlank()){
-            throw new Exception("Nome invalido!");
-        }
+	public void salve(Cliente cliente) throws Exception {
+		if (cliente.getNome() == null || cliente.getNome().isBlank()) {
+			throw new Exception("Nome invalido!");
+		}
 
-        if(cliente.getCpf() == null || cliente.getCpf().isBlank()){
-            throw new Exception("CPF invalido!");
-        }
+		if (cliente.getCpf() == null || cliente.getCpf().isBlank()) {
+			throw new Exception("CPF invalido!");
+		}
 
-        if(cliente.getConta() == null){
-            throw new Exception("A conta deve ser definida!");
-        }
+		if (cliente.getConta() == null) {
+			throw new Exception("A conta deve ser definida!");
+		}
 
-        clientes.save(cliente);
-    }
+		clientes.salve(cliente);
+	}
 
-    void remover(long id) throws Exception {
-        Cliente cliente = clientes.getClientePorId(id);
-        if (cliente.getConta().getSaldo() != 0) {
-            throw new Exception("Não é possivel remover um cliente que contenha saldo!");
-        }
-        clientes.remover(id);
-    }
+	public void remover(long id) throws Exception {
+		Cliente cliente = clientes.getClientePorId(id);
+		if (cliente.getConta().getSaldo() != 0) {
+			throw new Exception("Não é possivel remover um cliente que contenha saldo!");
+		}
+		clientes.remover(id);
+	}
 
-    Cliente getClientePorId(long id) throws Exception {
-        return clientes.getClientePorId(id);
-    }
+	public Cliente getClientePorId(long id) throws Exception {
+		return clientes.getClientePorId(id);
+	}
 }

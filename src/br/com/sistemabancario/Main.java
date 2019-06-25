@@ -4,7 +4,8 @@ import br.com.sistemabancario.ui.console.MenuPrincipal;
 
 public class Main {
 
-    public static void main(String[] args) {
-        new MenuPrincipal().run();
-    }
+	public static void main(String[] args) {
+		MenuPrincipal menuPrincipal = new MenuPrincipal();
+		menuPrincipal.run();
+	}
 }

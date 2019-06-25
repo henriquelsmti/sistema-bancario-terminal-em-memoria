@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ClientesEmMemoria implements Clientes {
 
-    private List<Cliente> clientes = new ArrayList<>();
+    private static List<Cliente> clientes = new ArrayList<>();
 
     @Override
     public List<Cliente> listAll() throws Exception {
@@ -16,7 +16,7 @@ public class ClientesEmMemoria implements Clientes {
     }
 
     @Override
-    public void save(Cliente cliente) throws Exception {
+    public void salve(Cliente cliente) throws Exception {
         if (cliente.getId() > 0) {
             remover(cliente.getId());
             clientes.add(cliente);

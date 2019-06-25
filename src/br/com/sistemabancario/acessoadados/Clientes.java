@@ -8,7 +8,7 @@ public interface Clientes {
 
     List<Cliente> listAll() throws Exception ;
 
-    void save(Cliente cliente) throws Exception ;
+    void salve(Cliente cliente) throws Exception ;
 
     void remover(long id) throws Exception;
 
