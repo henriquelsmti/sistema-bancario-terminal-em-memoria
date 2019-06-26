@@ -1,11 +1,7 @@
 package br.com.sistemabancario.dominio;
 
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 
 public class ContaPoupanca extends Conta {
-
-	private double percentualRendimento;
 
 	@Override
 	public void retirar(double valor) throws Exception {
@@ -21,15 +17,4 @@ public class ContaPoupanca extends Conta {
 		setSaldo(getSaldo() + valor);
 	}
 
-	@Override
-	public void corrigirValorMonetario() {
-		LocalDate hoje = LocalDate.now();
-		long quantidadeDeDias = ChronoUnit.DAYS.between(hoje, getUltimaCorrecao());
-		if (quantidadeDeDias >= 30) {
-			double valor = getSaldo();
-			double rendimento = (valor / 100) * percentualRendimento;
-			setSaldo(valor + rendimento);
-			setUltimaCorrecao(LocalDate.now());
-		}
-	}
 }

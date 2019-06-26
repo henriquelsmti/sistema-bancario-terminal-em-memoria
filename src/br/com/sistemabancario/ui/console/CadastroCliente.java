@@ -35,7 +35,6 @@ public class CadastroCliente implements Runnable {
 			} else {
 				ConsoleUtil.clearScreen();
 				ConsoleUtil.printOpcaoInvalida();
-				scanner.nextLine();
 			}
 
 		} while (!sair);
@@ -48,7 +47,6 @@ public class CadastroCliente implements Runnable {
 			clienteRN.remover(id);
 		} catch (NumberFormatException e) {
 			ConsoleUtil.printOpcaoInvalida();
-			scanner.nextLine();
 		} catch (Exception e) {
 			System.out.println("Erro ao remover o cliente: " + e.getMessage());
 		}

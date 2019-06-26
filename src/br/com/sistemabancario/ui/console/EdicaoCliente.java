@@ -48,12 +48,20 @@ public class EdicaoCliente {
 			} else {
 				invalido = false;
 				if (resposta.equals("S")) {
-					cliente.setConta(new ContaCorrente());
+					ContaCorrente contaCorrente = new ContaCorrente();
+					lerChequeEspecialCC(contaCorrente);
+					cliente.setConta(contaCorrente);
 				} else {
 					cliente.setConta(new ContaPoupanca());
 				}
 			}
 		} while (invalido);
+	}
+
+	private void lerChequeEspecialCC(ContaCorrente contaCorrente){
+		System.out.print("Limite cheque especial ");
+		double valor = ConsoleUtil.leiaValor();
+		contaCorrente.setLimiteChequeEspecial(valor);
 	}
 
 	private void lerCpf(Cliente cliente, Scanner scanner) {

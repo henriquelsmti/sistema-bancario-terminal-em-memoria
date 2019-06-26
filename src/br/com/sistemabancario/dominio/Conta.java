@@ -1,16 +1,11 @@
 package br.com.sistemabancario.dominio;
 
-import java.time.LocalDate;
-
 public abstract class Conta {
 	private double saldo;
-	private LocalDate ultimaCorrecao;
 
 	public abstract void retirar(double valor) throws Exception;
 
 	public abstract void depositar(double valor);
-
-	public abstract void corrigirValorMonetario();
 
 	public double getSaldo() {
 		return saldo;
@@ -20,11 +15,4 @@ public abstract class Conta {
 		this.saldo = saldo;
 	}
 
-	public LocalDate getUltimaCorrecao() {
-		return ultimaCorrecao;
-	}
-
-	protected void setUltimaCorrecao(LocalDate ultimaCorrecao) {
-		this.ultimaCorrecao = ultimaCorrecao;
-	}
 }
