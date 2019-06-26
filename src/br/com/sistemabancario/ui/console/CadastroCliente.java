@@ -49,6 +49,7 @@ public class CadastroCliente implements Runnable {
 			ConsoleUtil.printOpcaoInvalida();
 		} catch (Exception e) {
 			System.out.println("Erro ao remover o cliente: " + e.getMessage());
+			ConsoleUtil.aguardeUsuario();
 		}
 	}
 
@@ -63,6 +64,7 @@ public class CadastroCliente implements Runnable {
 			scanner.nextLine();
 		} catch (Exception e) {
 			System.out.println("Erro ao editar o cliente: " + e.getMessage());
+			ConsoleUtil.aguardeUsuario();
 		}
 	}
 

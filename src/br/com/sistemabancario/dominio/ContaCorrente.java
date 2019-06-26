@@ -7,8 +7,8 @@ public class ContaCorrente extends Conta {
 
 	@Override
 	public void retirar(double valor) throws Exception {
-		double saldoDepois = getSaldo() - limiteChequeEspecial - valor;
-		if (saldoDepois >= 0) {
+		double saldoDepois = (getSaldo() - valor);
+		if (saldoDepois >= 0 || Math.abs(saldoDepois) <= limiteChequeEspecial) {
 			setSaldo(getSaldo() - valor);
 		} else {
 			throw new Exception("Saldo insuficiente!");
